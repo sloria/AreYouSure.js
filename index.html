@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/normalize/3.0.0/normalize.min.css">
+        <title>AreYouSure.js Demo</title>
+        <style>
+            body {font-size: 1.2em; font-family: Garamond;}
+            .box {width: 900px; margin: 40px auto;}
+            .areyousure-text {font-family: Georgia;}
+            button {font-family: "Helvetica Neue" sans-serif; font-size: 16px;padding: 5px 10px; display: inline; background-color: #85144B; border: none; color: #fff;}
+        </style>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+        <div class="box">
+            <h1>AreYouSure.js Demo</h1>
+            <p>Everything you ever wanted for your confirmation dialogs.</p>
+            <p><button id="default">Default</button></p>
+            <p><button id="customText">Custom text</button></p>
+            <p><button id="callback">Callbacks</button></p>
+        </div>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <script src="./areyousure.js"></script>
+        <script>
+            $("#default").areyousure({});
+            $("#customText").areyousure({text: "¿Está seguro?", confirmText: "Sí", cancelText: "No"});
+            $("#callback").areyousure({yes: function(evt) {alert('Sure.');},
+                                        no: function(evt) {alert('Not sure.');}
+                                    });
+        </script>
+    </body>
+</html>
