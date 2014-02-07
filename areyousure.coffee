@@ -5,8 +5,8 @@ asAnchor = (text, action) ->
 noop = ->
 defaults =
     text: "Are you sure?"
-    confirmText: asAnchor('Yes', 'confirm'),
-    cancelText: asAnchor('No', 'cancel'),
+    confirmText: 'Yes',
+    cancelText: 'No',
     sep: "&nbsp;&nbsp;",
     reverse: false,
     yes: noop, no: noop
@@ -24,25 +24,34 @@ class AreYouSure
         @confirmElem = "<span class='areyousure' style='display:none' data-ays-dialog>
             <span class='areyousure-text'>#{text}</span></span>"
         @element.after(@confirmElem)
+        @outer = @element.parent()
+        @dialog = @outer.find("[data-ays-dialog]")
         @init()
 
-    init: ->
+    init: () ->
         self = this
-        $outer = @element.parent()
-        $dlg = $outer.find("[data-ays-dialog]")
         @element.on("click", (evt) =>
-            @element.hide()
-            $dlg.show()
+            @activate()
             evt.preventDefault()
         )
-        $outer.on('click', ".#{namespace}-link", (evt) ->
+        @outer.on('click', ".#{namespace}-link", (evt) ->
+            self.deactivate()
             if $(this).data('ays-action') == "confirm"
                 self.options.yes.call(self, evt)
             else
                 self.options.no.call(self, evt)
-            $dlg.hide()
-            self.element.show()
         )
+        return this
+
+    activate: () ->
+        @dialog.show()
+        @element.hide()
+        return this
+
+    deactivate: () ->
+        @dialog.hide()
+        @element.show()
+        return this
 
 $.fn.areyousure = (options) ->
     @each ->

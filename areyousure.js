@@ -13,8 +13,8 @@
 
   defaults = {
     text: "Are you sure?",
-    confirmText: asAnchor('Yes', 'confirm'),
-    cancelText: asAnchor('No', 'cancel'),
+    confirmText: 'Yes',
+    cancelText: 'No',
     sep: "&nbsp;&nbsp;",
     reverse: false,
     yes: noop,
@@ -36,30 +36,41 @@
       }
       this.confirmElem = "<span class='areyousure' style='display:none' data-ays-dialog> <span class='areyousure-text'>" + text + "</span></span>";
       this.element.after(this.confirmElem);
+      this.outer = this.element.parent();
+      this.dialog = this.outer.find("[data-ays-dialog]");
       this.init();
     }
 
     AreYouSure.prototype.init = function() {
-      var $dlg, $outer, self;
+      var self;
       self = this;
-      $outer = this.element.parent();
-      $dlg = $outer.find("[data-ays-dialog]");
       this.element.on("click", (function(_this) {
         return function(evt) {
-          _this.element.hide();
-          $dlg.show();
+          _this.activate();
           return evt.preventDefault();
         };
       })(this));
-      return $outer.on('click', "." + namespace + "-link", function(evt) {
+      this.outer.on('click', "." + namespace + "-link", function(evt) {
+        self.deactivate();
         if ($(this).data('ays-action') === "confirm") {
-          self.options.yes.call(self, evt);
+          return self.options.yes.call(self, evt);
         } else {
-          self.options.no.call(self, evt);
+          return self.options.no.call(self, evt);
         }
-        $dlg.hide();
-        return self.element.show();
       });
+      return this;
+    };
+
+    AreYouSure.prototype.activate = function() {
+      this.dialog.show();
+      this.element.hide();
+      return this;
+    };
+
+    AreYouSure.prototype.deactivate = function() {
+      this.dialog.hide();
+      this.element.show();
+      return this;
     };
 
     return AreYouSure;
