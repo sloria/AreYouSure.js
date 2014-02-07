@@ -15,7 +15,7 @@
     text: "Are you sure?",
     confirmText: asAnchor('Yes', 'confirm'),
     cancelText: asAnchor('No', 'cancel'),
-    sep: " ",
+    sep: "&nbsp;&nbsp;",
     reverse: false,
     yes: noop,
     no: noop
@@ -30,9 +30,9 @@
       this.cancelText = asAnchor(this.options.cancelText, 'cancel');
       this.confirmText = asAnchor(this.options.confirmText, 'confirm');
       if (this.options.reverse) {
-        text = "" + this.options.text + this.options.sep + this.cancelText + this.options.sep + this.confirmText;
+        text = "" + this.options.text + " " + this.cancelText + this.options.sep + this.confirmText;
       } else {
-        text = "" + this.options.text + this.options.sep + this.confirmText + this.options.sep + this.cancelText;
+        text = "" + this.options.text + " " + this.confirmText + this.options.sep + this.cancelText;
       }
       this.confirmElem = "<span class='areyousure' style='display:none' data-ays-dialog> <span class='areyousure-text'>" + text + "</span></span>";
       this.element.after(this.confirmElem);

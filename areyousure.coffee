@@ -7,7 +7,7 @@ defaults =
     text: "Are you sure?"
     confirmText: asAnchor('Yes', 'confirm'),
     cancelText: asAnchor('No', 'cancel'),
-    sep: " ",
+    sep: "&nbsp;&nbsp;",
     reverse: false,
     yes: noop, no: noop
 
@@ -18,9 +18,9 @@ class AreYouSure
         @cancelText = asAnchor(@options.cancelText, 'cancel')
         @confirmText = asAnchor(@options.confirmText, 'confirm')
         if @options.reverse
-            text = "#{@options.text}#{@options.sep}#{@cancelText}#{@options.sep}#{@confirmText}"
+            text = "#{@options.text} #{@cancelText}#{@options.sep}#{@confirmText}"
         else
-            text = "#{@options.text}#{@options.sep}#{@confirmText}#{@options.sep}#{@cancelText}"
+            text = "#{@options.text} #{@confirmText}#{@options.sep}#{@cancelText}"
         @confirmElem = "<span class='areyousure' style='display:none' data-ays-dialog>
             <span class='areyousure-text'>#{text}</span></span>"
         @element.after(@confirmElem)
@@ -43,7 +43,6 @@ class AreYouSure
             $dlg.hide()
             self.element.show()
         )
-
 
 $.fn.areyousure = (options) ->
     @each ->
