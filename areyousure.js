@@ -15,7 +15,7 @@
     text: "Are you sure?",
     confirmText: 'Yes',
     cancelText: 'No',
-    sep: "&nbsp;&nbsp;",
+    sep: " | ",
     reverse: false,
     yes: noop,
     no: noop
