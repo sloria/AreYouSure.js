@@ -3,6 +3,8 @@ var gulp = require('gulp');
 var coffee = require('gulp-coffee');
 var uglify = require('gulp-uglify');
 var rename = require('gulp-rename');
+var qunit = require('gulp-qunit');
+
 
 gulp.task('compile', function() {
   gulp.src('tests/*.coffee')
@@ -11,6 +13,11 @@ gulp.task('compile', function() {
   gulp.src('*.coffee')
     .pipe(coffee())
     .pipe(gulp.dest('.'));
+});
+
+gulp.task('test', function() {
+  gulp.src('./tests/index.html')
+    .pipe(qunit());
 });
 
 gulp.task('compress', function() {
@@ -22,7 +29,7 @@ gulp.task('compress', function() {
 });
 
 gulp.task('watch', function () {
-  gulp.watch('*/**/*.coffee', ['compile', 'compress']);
+  gulp.watch('*/**/*.coffee', ['compile', 'compress', 'test']);
 });
 
-gulp.task('default', ['compile', 'compress']);
+gulp.task('default', ['compile', 'compress', 'test']);
