@@ -2,7 +2,7 @@
   "name": "areyousure",
   "title": "AreYouSure.js",
   "description": "Inline confirmation dialogs for Javascript.",
-  "version": "0.1.0-pre",
+  "version": "0.1.0",
   "devDependencies": {
     "coffee-script": "~1.7.1",
     "gulp-util": "~2.2.14",
