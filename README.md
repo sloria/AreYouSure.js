@@ -19,8 +19,11 @@ $ npm install areyousure
 Or in HTML:
 
 ```html
+<script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
 <script src="areyousure.js"></script>
 ```
+
+AreYouSure.js depends on [jQuery](http://jquery.com/).
 
 ## Usage
 
