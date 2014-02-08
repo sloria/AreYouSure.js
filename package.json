@@ -1,10 +1,9 @@
 {
   "name": "areyousure",
   "title": "AreYouSure.js",
-  "description": "Everything you ever wanted for you confirmation dialogs.",
+  "description": "Inline confirmation dialogs for Javascript.",
   "version": "0.1.0-pre",
   "devDependencies": {
-    "grunt": "~0.4.1",
     "coffee-script": "~1.7.1",
     "gulp-util": "~2.2.14",
     "gulp": "~3.5.2",
@@ -14,6 +13,6 @@
   },
   "repository": {
     "type": "git",
-    "url": "http://github.com/sloria/areyousure.git"
+    "url": "https://github.com/sloria/AreYouSure.js.git"
   }
 }
