@@ -34,7 +34,7 @@
       } else {
         text = "" + this.options.text + " " + this.confirmText + this.options.sep + this.cancelText;
       }
-      this.confirmElem = "<span class='areyousure' style='display:none' data-ays-dialog> <span class='areyousure-text'>" + text + "</span></span>";
+      this.confirmElem = "<span class='areyousure-dialog' style='display:none' data-ays-dialog> <span class='areyousure-text'>" + text + "</span></span>";
       this.element.after(this.confirmElem);
       this.outer = this.element.parent();
       this.dialog = this.outer.find("[data-ays-dialog]");
@@ -60,14 +60,12 @@
     };
 
     AreYouSure.prototype.activate = function() {
-      this.dialog.show();
-      this.element.hide();
+      this.dialog.show() && this.element.hide();
       return this;
     };
 
     AreYouSure.prototype.deactivate = function() {
-      this.dialog.hide();
-      this.element.show();
+      this.dialog.hide() && this.element.show();
       return this;
     };
 
@@ -90,7 +88,8 @@
       return new AreYouSure($this, {
         text: $this.data('areyousure') || defaults.text,
         confirmText: $this.data("confirm") || defaults.confirmText,
-        cancelText: $this.data("cancel") || defaults.cancelText
+        cancelText: $this.data("cancel") || defaults.cancelText,
+        reverse: $this.data("reversed")
       });
     });
   };

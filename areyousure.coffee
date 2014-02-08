@@ -21,7 +21,7 @@ class AreYouSure
             text = "#{@options.text} #{@cancelText}#{@options.sep}#{@confirmText}"
         else
             text = "#{@options.text} #{@confirmText}#{@options.sep}#{@cancelText}"
-        @confirmElem = "<span class='areyousure' style='display:none' data-ays-dialog>
+        @confirmElem = "<span class='areyousure-dialog' style='display:none' data-ays-dialog>
             <span class='areyousure-text'>#{text}</span></span>"
         @element.after(@confirmElem)
         @outer = @element.parent()
@@ -42,18 +42,16 @@ class AreYouSure
         return this
 
     activate: () ->
-        @dialog.show()
-        @element.hide()
+        @dialog.show() and @element.hide()
         return this
 
     deactivate: () ->
-        @dialog.hide()
-        @element.show()
+        @dialog.hide() and @element.show()
         return this
 
 $.fn.areyousure = (options) ->
     @each ->
-        if !$.data(@, "plugin_#{namespace}")
+        if !$.data(@, "plugin_#{namespace}")  # Prevent multiple instantiation
             $.data(@, "plugin_#{namespace}", new AreYouSure($(this), options))
 
 AreYouSure.discover = () ->
@@ -62,7 +60,8 @@ AreYouSure.discover = () ->
         new AreYouSure($this, {
             text: $this.data('areyousure') or defaults.text,
             confirmText: $this.data("confirm") or defaults.confirmText,
-            cancelText: $this.data("cancel") or defaults.cancelText
+            cancelText: $this.data("cancel") or defaults.cancelText,
+            reverse: $this.data("reversed")
         })
     )
 
