@@ -8,7 +8,23 @@ Inline confirmation dialogs for Javascript.
 
 http://www.stevenloria.com/AreYouSure.js/
 
+## Install
+
+With Node:
+
+```
+$ npm install areyousure
+```
+
+Or in HTML:
+
+```html
+<script src="areyousure.js"></script>
+```
+
 ## Usage
+
+Just add `data-areyousure` to any clickable element to add an inline confirmation dialog to it.
 
 ```html
 <button data-areyousure>Big Red Button</button>
