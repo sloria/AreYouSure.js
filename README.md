@@ -1,5 +1,7 @@
 # AreYouSure.js
 
+[![Build Status](https://travis-ci.org/sloria/AreYouSure.js.png?branch=master)](https://travis-ci.org/sloria/AreYouSure.js)
+
 Inline confirmation dialogs for Javascript.
 
 [Download](https://raw.github.com/sloria/AreYouSure.js/master/areyousure.js) (3 Kb) [Minified](https://raw.github.com/sloria/AreYouSure.js/master/areyousure.min.js) (2 Kb)
