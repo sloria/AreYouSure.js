@@ -85,4 +85,22 @@
     });
   };
 
+  window.AreYouSure = AreYouSure;
+
+  AreYouSure.discover = true;
+
+  $(function() {
+    if (AreYouSure.discover) {
+      return $("[data-areyousure]").each(function() {
+        var $this;
+        $this = $(this);
+        return new AreYouSure($this, {
+          text: $this.data('areyousure') || defaults.text,
+          confirmText: $this.data("confirm") || defaults.confirmText,
+          cancelText: $this.data("cancel") || defaults.cancelText
+        });
+      });
+    }
+  });
+
 }).call(this);

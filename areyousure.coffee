@@ -57,3 +57,17 @@ $.fn.areyousure = (options) ->
     @each ->
         if !$.data(@, "plugin_#{namespace}")
             $.data(@, "plugin_#{namespace}", new AreYouSure($(this), options))
+
+AreYouSure.discover = () ->
+    $("[data-areyousure]").each(() ->
+        $this = $(this)
+        new AreYouSure($this, {
+            text: $this.data('areyousure') or defaults.text,
+            confirmText: $this.data("confirm") or defaults.confirmText,
+            cancelText: $this.data("cancel") or defaults.cancelText
+        })
+    )
+
+window.AreYouSure = AreYouSure
+AreYouSure.auto = true
+$(() -> AreYouSure.discover() if AreYouSure.auto)
