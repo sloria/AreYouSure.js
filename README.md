@@ -2,7 +2,7 @@
 
 Inline confirmation dialogs for Javascript.
 
-![Screenshot](https://dl.dropboxusercontent.com/u/1693233/github/Screenshot%202014-02-08%2016.57.37.png)
+<a href="http://www.stevenloria.com/AreYouSure.js/"><img src="https://dl.dropboxusercontent.com/u/1693233/github/Screenshot%202014-02-08%2016.57.37.png" alt="Screenshot"></a>
 
 ## Download
 
