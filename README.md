@@ -29,8 +29,8 @@ Implicit creation using HTML:
 <button id="callbacks" data-areyousure>Callbacks</button>
 <script>
 $(function() {
-    $("#callbacks + .areyousure [data-ays-action='confirm']").on('click', function() {alert("Sure.");});
-    $("#callbacks + .areyousure [data-ays-action='cancel']").on('click', function() {alert("Not sure.");});
+    $("#callbacks + .areyousure-dialog [data-ays-action='confirm']").on('click', function() {alert("Sure.");});
+    $("#callbacks + .areyousure-dialog [data-ays-action='cancel']").on('click', function() {alert("Not sure.");});
 });
 </script>
 ```

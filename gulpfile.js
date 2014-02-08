@@ -5,7 +5,10 @@ var uglify = require('gulp-uglify');
 var rename = require('gulp-rename');
 
 gulp.task('compile', function() {
-  return gulp.src('*.coffee')
+  gulp.src('tests/*.coffee')
+    .pipe(coffee())
+    .pipe(gulp.dest('./tests'));
+  gulp.src('*.coffee')
     .pipe(coffee())
     .pipe(gulp.dest('.'));
 });
@@ -19,7 +22,7 @@ gulp.task('compress', function() {
 });
 
 gulp.task('watch', function () {
-  gulp.watch('*coffee', ['compile', 'compress']);
+  gulp.watch('*/**/*.coffee', ['compile', 'compress']);
 });
 
 gulp.task('default', ['compile', 'compress']);
