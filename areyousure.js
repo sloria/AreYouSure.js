@@ -44,19 +44,17 @@
     AreYouSure.prototype.init = function() {
       var self;
       self = this;
-      this.element.on("click", (function(_this) {
-        return function(evt) {
-          _this.activate();
-          return evt.preventDefault();
-        };
-      })(this));
+      this.element.on("click", function(evt) {
+        evt.preventDefault();
+        return self.activate();
+      });
       this.outer.on('click', "." + namespace + "-link", function(evt) {
-        self.deactivate();
-        if ($(this).data('ays-action') === "confirm") {
-          return self.options.yes.call(self, evt);
-        } else {
-          return self.options.no.call(self, evt);
-        }
+        var callback;
+        evt.preventDefault();
+        callback = $(this).data('ays-action') === "confirm" ? "yes" : "no";
+        return $.when(self.options[callback].call(self, evt)).then(function() {
+          return self.deactivate();
+        });
       });
       return this;
     };
@@ -85,21 +83,25 @@
     });
   };
 
+  AreYouSure.discover = function() {
+    return $("[data-areyousure]").each(function() {
+      var $this;
+      $this = $(this);
+      return new AreYouSure($this, {
+        text: $this.data('areyousure') || defaults.text,
+        confirmText: $this.data("confirm") || defaults.confirmText,
+        cancelText: $this.data("cancel") || defaults.cancelText
+      });
+    });
+  };
+
   window.AreYouSure = AreYouSure;
 
-  AreYouSure.discover = true;
+  AreYouSure.auto = true;
 
   $(function() {
-    if (AreYouSure.discover) {
-      return $("[data-areyousure]").each(function() {
-        var $this;
-        $this = $(this);
-        return new AreYouSure($this, {
-          text: $this.data('areyousure') || defaults.text,
-          confirmText: $this.data("confirm") || defaults.confirmText,
-          cancelText: $this.data("cancel") || defaults.cancelText
-        });
-      });
+    if (AreYouSure.auto) {
+      return AreYouSure.discover();
     }
   });
 

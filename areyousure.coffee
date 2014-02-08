@@ -30,16 +30,14 @@ class AreYouSure
 
     init: () ->
         self = this
-        @element.on("click", (evt) =>
-            @activate()
+        @element.on("click", (evt) ->
             evt.preventDefault()
+            self.activate()
         )
         @outer.on('click', ".#{namespace}-link", (evt) ->
-            self.deactivate()
-            if $(this).data('ays-action') == "confirm"
-                self.options.yes.call(self, evt)
-            else
-                self.options.no.call(self, evt)
+            evt.preventDefault()
+            callback = if $(this).data('ays-action') == "confirm" then "yes" else "no"
+            $.when(self.options[callback].call(self, evt)).then(() -> self.deactivate())
         )
         return this
 

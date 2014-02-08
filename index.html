@@ -5,8 +5,8 @@
         <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/normalize/3.0.0/normalize.min.css">
         <title>AreYouSure.js</title>
         <style>
-            body {color: #333; font-size: 1.2em; font-family: Garamond;}
-            .box {width: 900px; margin: 40px auto;}
+            body {padding-top: 60px; color: #333; font-size: 1.2em; font-family: Garamond;}
+            .box {width: 600px; margin: 40px auto;}
             .areyousure-text {font-family: Georgia;}
             button {font-family: "Helvetica Neue" sans-serif; font-size: 16px;padding: 5px 10px; display: inline; background-color: #85144B; border: none; color: #fff;}
             a {color: #0074D9; text-decoration: none;}
@@ -17,7 +17,7 @@
     <body>
         <div class="box">
             <h1>AreYouSure.js</h1>
-            <p>Everything you ever wanted for your confirmation dialogs.</p>
+            <p>Inline confirmation dialogs for Javascript.</p>
             <p><button id="default">Default</button></p>
             <p><button id="customText">Custom text</button></p>
             <p><button id="callback">Callbacks</button></p>
@@ -25,7 +25,7 @@
             <h1 class="get-it"><a href="https://github.com/sloria/AreYouSure.js">Get it now.</a></h1>
         </div>
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-        <script src="./areyousure.js"></script>
+        <script src="areyousure.js"></script>
         <script>
             $("#default").areyousure();
             $("#customText").areyousure({text: "¿Está seguro?", confirmText: "Sí", cancelText: "No"});
