@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AreYouSure.js Tests</title>
+    <link rel="stylesheet" href="qunit-1.12.0.css">
+</head>
+<body>
+<h1 id="qunit-header">AreYouSure.js Tests</h1>
+<h2 id="qunit-banner"></h2>
+<div id="qunit-testrunner-toolbar"></div>
+<h2 id="qunit-userAgent"></h2>
+<ol id="qunit-tests"></ol>
+<div id="qunit-test-area"></div>
+
+<div id="qunit-fixture">
+<p><button id="default">Default</button></p>
+<p><button id="customText">Custom text</button></p>
+<p><button id="callback">Callbacks</button></p>
+
+<p><button id="autoDefault" data-areyousure>Default</button></p>
+<p><button id="autoCustom" data-areyousure="¿Está seguro?" data-confirm="Sí" data-cancel="No">Custom Text</button></p>
+<p><button id="autoReverse" data-areyousure data-reversed="true">Reversed</button></p>
+</div>
+
+
+<!-- The library -->
+<script src="./jquery-1.10.2.js"></script>
+<script src="../areyousure.js"></script>
+<!-- testing framework -->
+<script src="./qunit-1.12.0.js"></script>
+<script src="./syn.js"></script>
+<script>
+  QUnit.config.autostart = false;
+  AreYouSure.auto = false;
+</script>
+<!-- The tests -->
+<script src="./tests.js"></script>
+</body>
+</html>
