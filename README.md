@@ -6,7 +6,7 @@ Inline confirmation dialogs for Javascript.
 
 ## Demo
 
-http://www.stevenloria.com/AreYouSure.js/
+http://stevenloria.com/AreYouSure.js/
 
 ## Usage
 
