@@ -61,6 +61,17 @@
     });
   });
 
+  test('custom separator', function() {
+    stop();
+    $('#default').areyousure({
+      sep: ' / '
+    });
+    return Syn.click({}, 'default', function() {
+      start();
+      return dlgContains('default', 'Yes / No');
+    });
+  });
+
   test('yes callback', function() {
     var yesCalled;
     expect(2);
@@ -122,6 +133,15 @@
       dlgContains('autoCustom', "¿Está seguro?");
       dlgContains('autoCustom', "Sí");
       return dlgContains('autoCustom', "No");
+    });
+  });
+
+  test('custom separator', function() {
+    stop();
+    return Syn.click({}, 'autoSep', function() {
+      start();
+      dlgVisible('autoSep');
+      return dlgContains('autoSep', 'Yes / No');
     });
   });
 

@@ -61,7 +61,8 @@ AreYouSure.discover = () ->
             text: $this.data('areyousure') or defaults.text,
             confirmText: $this.data("confirm") or defaults.confirmText,
             cancelText: $this.data("cancel") or defaults.cancelText,
-            reverse: $this.data("reversed")
+            reverse: $this.data("reversed"),
+            sep: $this.data('separator')
         })
     )
 

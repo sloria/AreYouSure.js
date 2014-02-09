@@ -45,6 +45,15 @@ test('custom text', ->
     )
 )
 
+test('custom separator', ->
+    stop()
+    $('#default').areyousure({sep: ' / '})
+    Syn.click({}, 'default', () ->
+        start()
+        dlgContains('default', 'Yes / No')
+    )
+)
+
 test('yes callback', ->
     expect(2)
     yesCalled = false
@@ -100,6 +109,15 @@ test('custom text', ->
         dlgContains('autoCustom', "¿Está seguro?")
         dlgContains('autoCustom', "Sí")
         dlgContains('autoCustom', "No")
+    )
+)
+
+test('custom separator', ->
+    stop()
+    Syn.click({}, 'autoSep', ->
+        start()
+        dlgVisible('autoSep')
+        dlgContains('autoSep', 'Yes / No')
     )
 )
 
