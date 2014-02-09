@@ -1,14 +1,35 @@
-# AreYouSure.js
+# AreYouSure.js [![Build Status](https://travis-ci.org/sloria/AreYouSure.js.png?branch=master)](https://travis-ci.org/sloria/AreYouSure.js)
 
 Inline confirmation dialogs for Javascript.
 
-[Download](https://raw.github.com/sloria/AreYouSure.js/master/areyousure.js) (3 Kb) [Minified](https://raw.github.com/sloria/AreYouSure.js/master/areyousure.min.js) (2 Kb)
+<a href="http://www.stevenloria.com/AreYouSure.js/"><img src="https://dl.dropboxusercontent.com/u/1693233/github/Screenshot%202014-02-08%2016.57.37.png" alt="Screenshot"></a>
+
+## Download
+
+[Uncompressed](https://raw.github.com/sloria/AreYouSure.js/master/areyousure.js) (3 Kb) [Minified](https://raw.github.com/sloria/AreYouSure.js/master/areyousure.min.js) (2 Kb)
 
 ## Demo
 
 http://stevenloria.com/AreYouSure.js/
 
+## Install
+
+With Node:
+
+```
+$ npm install areyousure
+```
+
+Or in HTML:
+
+```html
+<script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
+<script src="areyousure.js"></script>
+```
+
 ## Usage
+
+Just add `data-areyousure` to any clickable element to add an inline confirmation dialog to it.
 
 ```html
 <button data-areyousure>Big Red Button</button>

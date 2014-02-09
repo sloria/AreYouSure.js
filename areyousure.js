@@ -89,7 +89,8 @@
         text: $this.data('areyousure') || defaults.text,
         confirmText: $this.data("confirm") || defaults.confirmText,
         cancelText: $this.data("cancel") || defaults.cancelText,
-        reverse: $this.data("reversed")
+        reverse: $this.data("reversed"),
+        sep: $this.data('separator')
       });
     });
   };
