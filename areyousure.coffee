@@ -9,7 +9,8 @@ defaults =
     cancelText: 'No',
     sep: " | ",
     reverse: false,
-    yes: noop, no: noop
+    yes: noop, no: noop,
+    additional: []
 
 class AreYouSure
     constructor: (@element, options) ->
@@ -17,12 +18,16 @@ class AreYouSure
         @options = $.extend({}, defaults, options)
         @cancelText = asAnchor(@options.cancelText, 'cancel')
         @confirmText = asAnchor(@options.confirmText, 'confirm')
+        if @options.additional.length > 0
+            @additional = (asAnchor(txt) for txt in @options.additional).join(@options.sep)
+        else
+            @additional = ''
         if @options.reverse
             text = "#{@options.text} #{@cancelText}#{@options.sep}#{@confirmText}"
         else
             text = "#{@options.text} #{@confirmText}#{@options.sep}#{@cancelText}"
         @confirmElem = "<span class='areyousure-dialog' style='display:none' data-ays-dialog>
-            <span class='areyousure-text'>#{text}</span></span>"
+            <span class='areyousure-text'>#{text}#{if @additional then @options.sep + @additional  else ''}</span></span>"
         @element.after(@confirmElem)
         @outer = @element.parent()
         @dialog = @outer.find("[data-ays-dialog]")

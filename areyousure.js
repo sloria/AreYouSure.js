@@ -18,23 +18,38 @@
     sep: " | ",
     reverse: false,
     yes: noop,
-    no: noop
+    no: noop,
+    additional: []
   };
 
   AreYouSure = (function() {
     function AreYouSure(element, options) {
-      var text;
+      var text, txt;
       this.element = element;
       this.element.wrap("<span class='" + namespace + "'></span>");
       this.options = $.extend({}, defaults, options);
       this.cancelText = asAnchor(this.options.cancelText, 'cancel');
       this.confirmText = asAnchor(this.options.confirmText, 'confirm');
+      if (this.options.additional.length > 0) {
+        this.additional = ((function() {
+          var _i, _len, _ref, _results;
+          _ref = this.options.additional;
+          _results = [];
+          for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+            txt = _ref[_i];
+            _results.push(asAnchor(txt));
+          }
+          return _results;
+        }).call(this)).join(this.options.sep);
+      } else {
+        this.additional = '';
+      }
       if (this.options.reverse) {
         text = "" + this.options.text + " " + this.cancelText + this.options.sep + this.confirmText;
       } else {
         text = "" + this.options.text + " " + this.confirmText + this.options.sep + this.cancelText;
       }
-      this.confirmElem = "<span class='areyousure-dialog' style='display:none' data-ays-dialog> <span class='areyousure-text'>" + text + "</span></span>";
+      this.confirmElem = "<span class='areyousure-dialog' style='display:none' data-ays-dialog> <span class='areyousure-text'>" + text + (this.additional ? this.options.sep + this.additional : '') + "</span></span>";
       this.element.after(this.confirmElem);
       this.outer = this.element.parent();
       this.dialog = this.outer.find("[data-ays-dialog]");
