@@ -29,7 +29,8 @@ gulp.task('compress', function() {
 });
 
 gulp.task('watch', function () {
-  gulp.watch('*/**/*.coffee', ['compile', 'compress', 'test']);
+  gulp.watch('*.coffee', ['compile', 'compress', 'test']);
+  gulp.watch('tests/*.coffee', ['compile', 'compress', 'test']);
 });
 
 gulp.task('default', ['compile', 'compress', 'test']);
