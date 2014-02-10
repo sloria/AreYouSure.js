@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/normalize/3.0.0/normalize.min.css">
+        <title>AreYouSure.js</title>
+        <style>
+            body {padding-top: 40px; color: #333;font-family: Garamond;}
+            h1 {font-size: 3em;}
+            h2 {font-size: 2.2em;}
+            p, .areyousure .areyousure-text {font-size: 20px;}
+            .box {width: 700px; margin: 40px auto;}
+            .areyousure-text {font-family: Georgia;}
+            button {font-family: "Helvetica Neue" sans-serif; font-size: 16px;padding: 5px 10px; display: inline; background-color: #85144B; border: none; color: #fff;}
+            a {color: navy; text-decoration: none;}
+            a:hover {color: #001F3F;}
+        </style>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
+        <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/gist-embed/1.6/gist-embed.min.js"></script>
+        <script src="areyousure.js"></script>
+    </head>
+    <body>
+        <div class="box">
+            <h1>AreYouSure.js</h1>
+            <p>Inline confirmation dialogs for Javascript.</p>
+            <p><button id="default">Default</button></p>
+            <p><button id="customText">Custom text</button></p>
+            <p><button id="callback">Callbacks</button></p>
+            <code data-gist-id="8901284" data-gist-hide-line-numbers="true" data-gist-hide-footer="true"></code>
+
+            <h2 class="get-it"><a id="getIt" href="https://github.com/sloria/AreYouSure.js">Get it now.</a></h1>
+            <div class='footer-links'>
+                <p><a href="http://github.com/sloria/AreYouSure.js">Source and docs on Github</a></p>
+                <p><a class='license' href="http://sloria.mit-license.org">MIT Licensed</a></p>
+            </div>
+        </div>
+        <script>
+            $("#default").areyousure();
+            $("#customText").areyousure({text: "¿Está seguro?", confirmText: "Sí", cancelText: "No"});
+            $("#callback").areyousure({yes: function(evt) {alert('Sure.');},
+                                        no: function(evt) {alert('Not sure.');}
+                                    });
+            $('#getIt').areyousure({
+                text: "Download: ", confirmText: '<a href="https://raw.github.com/sloria/AreYouSure.js/master/areyousure.js">Uncompressed (3 Kb)</a>',
+                cancelText: '<a href="https://raw.github.com/sloria/AreYouSure.js/master/areyousure.min.js">Minified (2 Kb)</a>',
+                additional: ['Cancel']
+            });
+        </script>
+    </body>
+</html>
