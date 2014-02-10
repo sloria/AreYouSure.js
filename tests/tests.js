@@ -108,6 +108,18 @@
     });
   });
 
+  test('additional links', function() {
+    $('#default').areyousure({
+      additional: ['Foo', 'Bar']
+    });
+    stop();
+    return Syn.click({}, 'default', function() {
+      start();
+      dlgVisible('default');
+      return dlgContains('default', 'Yes | No | Foo | Bar');
+    });
+  });
+
   module('autodiscovered buttons', {
     setup: function() {
       return AreYouSure.discover();

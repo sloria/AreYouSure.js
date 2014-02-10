@@ -86,6 +86,17 @@ test('no callback', ->
     )
 )
 
+test('additional links', ->
+    $('#default').areyousure({additional: ['Foo', 'Bar']})
+    stop()
+    Syn.click({}, 'default', ->
+        start()
+        dlgVisible('default')
+        dlgContains('default', 'Yes | No | Foo | Bar')
+    )
+
+)
+
 module('autodiscovered buttons',
     setup: () -> AreYouSure.discover()
 )
