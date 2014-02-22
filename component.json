@@ -1,0 +1,11 @@
+{
+  "name": "areyousure",
+  "repo": "sloria/AreYouSure.js",
+  "description": "Inline confirmation dialogs for Javascript.",
+  "version": "0.1.0",
+  "keywords": ["inline", "confirmation", "dialogs"],
+  "main": "areyousure.js",
+  "scripts": ["areyousure.js", "areyousure.min.js"],
+  "license": "MIT",
+  "twitter": "@sloria"
+}
