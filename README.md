@@ -14,11 +14,9 @@ http://stevenloria.com/AreYouSure.js/
 
 ## Install
 
-With Node:
-
-```
-$ npm install areyousure
-```
+- With Node: `npm install areyousure`
+- With bower: `bower install areyousure`
+- With component: `component install sloria/AreYouSure.js`
 
 Or in HTML:
 
