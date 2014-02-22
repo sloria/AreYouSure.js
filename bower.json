@@ -1,0 +1,26 @@
+{
+  "name": "areyousure",
+  "main": ["areyousure.js", "areyousure.min.js"],
+  "version": "0.1.0",
+  "homepage": "https://github.com/sloria/AreYouSure.js",
+  "authors": [
+    "Steven Loria <sloria1@gmail.com>"
+  ],
+  "description": "Inline confirmation dialogs for Javascript.",
+  "keywords": [
+    "inline",
+    "confirmation",
+    "dialogs"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jQuery": ">=1.9.0"
+  }
+}
