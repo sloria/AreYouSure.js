@@ -1,5 +1,7 @@
 # AreYouSure.js [![Build Status](https://travis-ci.org/sloria/AreYouSure.js.png?branch=master)](https://travis-ci.org/sloria/AreYouSure.js)
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/sloria/AreYouSure.js.svg)](https://greenkeeper.io/)
+
 Inline confirmation dialogs for Javascript.
 
 <a href="http://www.stevenloria.com/AreYouSure.js/"><img src="https://dl.dropboxusercontent.com/u/1693233/github/Screenshot%202014-02-08%2016.57.37.png" alt="Screenshot"></a>
