@@ -1,5 +1,6 @@
-# AreYouSure.js [![Build Status](https://travis-ci.org/sloria/AreYouSure.js.png?branch=master)](https://travis-ci.org/sloria/AreYouSure.js)
+# AreYouSure.js 
 
+[![Build Status](https://travis-ci.org/sloria/AreYouSure.js.svg?branch=master)](https://travis-ci.org/sloria/AreYouSure.js)
 [![Greenkeeper badge](https://badges.greenkeeper.io/sloria/AreYouSure.js.svg)](https://greenkeeper.io/)
 
 Inline confirmation dialogs for Javascript.
